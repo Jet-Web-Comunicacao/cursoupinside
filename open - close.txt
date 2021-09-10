@@ -1,0 +1,15 @@
+﻿<script language="JavaScript">
+function abrir(URL) {
+
+  var width = 620;
+  var height = 650;
+
+  var left = 50;
+  var top = 50;
+
+  window.open(URL,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
+
+}
+</script>
+
+<a href="javascript:abrir('caminho/pagina.php')"><strong>[&loz;]</strong> Open</a>

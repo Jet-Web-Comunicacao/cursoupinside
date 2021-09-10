@@ -1,0 +1,46 @@
+<?php
+$pag = "$_GET[pag]";
+if($pag >= '1'){
+ $pag = $pag;
+}else{
+ $pag = '1';
+}
+
+$maximo = '2'; //RESULTADOS POR PÁGINA
+$inicio = ($pag * $maximo) - $maximo;
+
+//AQUI VAI A SQL DE SUA PÁGINA
+//VOCÊ DEVE SETAR O LIMIT DO RESULTADO EX:
+//LIMIT $inicio,$maximo
+
+
+
+
+
+<?php
+
+//USE A MESMA SQL QUE QUE USOU PARA RECUPERAR OS RESULTADOS
+//SE TIVER A PROPRIEDADE WHERE USE A MESMA TAMBÉM
+$sql_res = mysql_query("SELECT * FROM tabela'");
+$total = mysql_num_rows($sql_res);
+
+$paginas = ceil($total/$maximo);
+$links = '5'; //QUANTIDADE DE LINKS NO PAGINATOR
+
+echo "<a href=\"LINK PARA A PÁGINA ONDE ESTA O PAGINATOR&amp;pag=1\">Primeira Página</a>&nbsp;&nbsp;&nbsp;";
+
+for ($i = $pag-$links; $i <= $pag-1; $i++){
+if ($i <= 0){
+}else{
+echo"<a href=\"LINK PARA A PÁGINA ONDE ESTA O  PAGINATOR&amp;pag=$i\">$i</a>&nbsp;&nbsp;&nbsp;";
+}
+}echo "$pag &nbsp;&nbsp;&nbsp;";
+
+for($i = $pag +1; $i <= $pag+$links; $i++){
+if($i > $paginas){
+}else{
+echo "<<a href=\"LINK PARA A PÁGINA ONDE ESTA O   PAGINATOR&amp;pag=$i\">$i</a>&nbsp;&nbsp;&nbsp;";
+}
+}
+echo "<a href=\"LINK PARA A PÁGINA ONDE ESTA O   PAGINATOR&amp;paginas=$i\">Última página</a>&nbsp;&nbsp;&nbsp;";
+?>
